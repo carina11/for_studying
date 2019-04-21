@@ -1,9 +1,21 @@
+window.onload=function(){
+    mes="";
+}
+
+
 function send(){
     var form = document.forms.mainForm;
-    //form.qrtext.value="success";
     //console.log()
-    document.write(`<a href="${form.qrtext.value}">${form.qrtext.value}</a>`);
+    //document.write(`<a href="${form.qrtext.value}">${form.qrtext.value}</a>`);
+    //mes=mes+document.forms.mainForm.qrtest.value;
+    mes=mes+"<br>"+form.qrtext.value;
+    form.qrtext.value="";
+    //console.log(mes);
 
+}
+function finish(){
+    document.write(`<h3>${mes}</h3><br>`+
+    '<a href="test.html">Go back to TOP</a><br>');
 }
 
 function openQRCamera(node) {
