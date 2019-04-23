@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>QRコード認識テスト</title>
+        <!--script type="text/javascript" src="local_save.js"></script-->
         <script type="text/javascript" src="test.js"></script>
         <script src="qr_packed.js"> </script>
     </head>
@@ -19,8 +20,11 @@
                     onchange="openQRCamera(this);"
                     tabindex=-1>
                     <br>
+                    <!--a id="download" href="#" download="test.txt" onclick="handleDownload()">ダウンロード</a-->
+
                     <input type="button" value="finish" onclick="finish();">
-                    <input type="button" value="send" onclick="send();">
+                    <input type="button"  value="send" onclick="send();">
+
             </label>
         </form>
         

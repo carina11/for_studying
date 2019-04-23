@@ -1,21 +1,46 @@
+//htmlが読みまれたときに実行される
 window.onload=function(){
-    mes="";
+    mes="";                                 //文字列型の変数を作成
 }
 
-
+//sendボタンが押されたら実行
 function send(){
-    var form = document.forms.mainForm;
-    //console.log()
+    var form = document.forms.mainForm;     //mainFormを変数formに読む
     //document.write(`<a href="${form.qrtext.value}">${form.qrtext.value}</a>`);
-    //mes=mes+document.forms.mainForm.qrtest.value;
-    mes=mes+"<br>"+form.qrtext.value;
-    form.qrtext.value="";
-    //console.log(mes);
-
+    mes=mes+"<br>"+form.qrtext.value;       //mesにテキストエリアの内容を追加
+    form.qrtext.value="";                   //テキストエリアをクリア
 }
 function finish(){
     document.write(`<h3>${mes}</h3><br>`+
     '<a href="test.html">Go back to TOP</a><br>');
+}
+
+
+/*----------------------------------------------------------------------------------------
+                  Do Not Edit Any Of The Codes From Here                                    */
+
+
+
+
+function handleDownLoad(){ 
+ 
+    //テキストボックスの値を取得
+    //var txtData = document.getElementById("txtData").value;
+
+    //ファイルタイプ、保存するテキストを指定してblobを作成
+    var blob = new Blob([ mes ], {
+        "type" : "text/plain"
+    });
+
+    //ファイルをダウンロード
+    if (window.navigator.msSaveBlob) {
+        window.navigator.msSaveBlob(blob, "test.txt");
+
+        // msSaveOrOpenBlobの場合はファイルを保存せずに開ける
+        window.navigator.msSaveOrOpenBlob(blob, "test.txt");
+    } else {
+        document.getElementById("download").href = window.URL.createObjectURL(blob);
+    }
 }
 
 function openQRCamera(node) {
